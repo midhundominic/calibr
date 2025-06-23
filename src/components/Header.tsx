@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import Button from "./ui/Button";
+import { ChevronDown } from "lucide-react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +13,7 @@ export default function Header() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed w-full bg-white"
+      className="w-full bg-white"
     >
       <div className="max-w-7xl mx-auto pt-10 pb-10 px-4 flex justify-between items-center">
         <div className="flex items-center gap-10">
@@ -48,12 +49,100 @@ export default function Header() {
             >
               Pricing
             </a>
-            <a
-              href="#pages"
-              className="text-lg font-medium text-[#0F086A] hover:text-[#1E78FF]"
-            >
-              Pages
-            </a>
+            <div className="relative group">
+         
+              <button className="flex items-center gap-1 text-lg font-medium text-[#0F086A] hover:text-[#1E78FF]">
+                Pages
+                <ChevronDown
+                  size={16}
+                  className="transition-transform duration-300 group-hover:rotate-180"
+                />
+              </button>
+
+           
+              <div className="absolute top-full -left-40 mt-4 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-white shadow-lg rounded-xl py-8 px-10 z-50 w-[650px] flex justify-between">
+             
+                <div>
+                  <h3 className="text-lg font-semibold text-[#0F086A] mb-4">
+                    Menu
+                  </h3>
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-[#0F086A]">
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Sales home
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Blog
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Home
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Blog post
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      About
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Careers
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Pricing
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Careers single
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Pricing single
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Integrations
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Features
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Integration single
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Contact
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Coming soon
+                    </a>
+                  </div>
+                </div>
+
+           
+                <div>
+                  <h3 className="text-lg font-semibold text-[#0F086A] mb-4">
+                    Utility Pages
+                  </h3>
+                  <div className="flex flex-col gap-2 text-[#0F086A]">
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Start Here
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Style Guide
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      404 Not Found
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Password protected
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Licenses
+                    </a>
+                    <a
+                      href="#"
+                      className="hover:text-[#1E78FF] underline font-semibold text-[#1E78FF]"
+                    >
+                      More Webflow Templates
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </nav>
           <a
             href="#cart"
@@ -66,7 +155,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu Toggle Button */}
+    
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -143,13 +232,100 @@ export default function Header() {
               >
                 Pricing
               </a>
-              <a
-                href="#pages"
-                className="text-lg font-medium text-[#0C1D37] hover:text-[#1E78FF]"
-                onClick={() => setIsOpen(false)}
-              >
+              <div className="relative group">
+             
+              <button className="flex items-center gap-1 text-lg font-medium text-[#0F086A] hover:text-[#1E78FF]">
                 Pages
-              </a>
+                <ChevronDown
+                  size={16}
+                  className="transition-transform duration-300 group-hover:rotate-180"
+                />
+              </button>
+
+           
+              <div className="absolute top-full -left-40 mt-4 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-white shadow-lg rounded-xl py-8 px-10 z-50 w-[650px] flex justify-between">
+             
+                <div>
+                  <h3 className="text-lg font-semibold text-[#0F086A] mb-4">
+                    Menu
+                  </h3>
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-[#0F086A]">
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Sales home
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Blog
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Home
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Blog post
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      About
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Careers
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Pricing
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Careers single
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Pricing single
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Integrations
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Features
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Integration single
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Contact
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Coming soon
+                    </a>
+                  </div>
+                </div>
+
+           
+                <div>
+                  <h3 className="text-lg font-semibold text-[#0F086A] mb-4">
+                    Utility Pages
+                  </h3>
+                  <div className="flex flex-col gap-2 text-[#0F086A]">
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Start Here
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Style Guide
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      404 Not Found
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Password protected
+                    </a>
+                    <a href="#" className="hover:text-[#1E78FF]">
+                      Licenses
+                    </a>
+                    <a
+                      href="#"
+                      className="hover:text-[#1E78FF] underline font-semibold text-[#1E78FF]"
+                    >
+                      More Webflow Templates
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
             </nav>
           </motion.div>
         )}
