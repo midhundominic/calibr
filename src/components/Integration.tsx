@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+const MotionLink = motion(Link);
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -26,14 +28,14 @@ export default function Integration() {
             amet porttitor eget dolor.
           </p>
           <div className="mt-6 lex justify-center gap-4 flex-wrap">
-            <motion.a
+          <MotionLink
+              href="/features"
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.97 }}
-              href="/features"
               className="inline-flex px-6 py-3 border border-gray-300 rounded-lg font-semibold text-[#0F086A] hover:text-[#4F46E5] transition"
             >
-              Browse all integrations<ArrowRight/>
-            </motion.a>
+              Browse all integrations <ArrowRight className="ml-2" />
+            </MotionLink>
           </div>
         </motion.div>
 

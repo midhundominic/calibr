@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import Button from './ui/Button'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 const features = [
     {
@@ -134,12 +135,12 @@ export default function FeaturesSection() {
         className="mt-12 flex justify-center gap-4 flex-wrap"
       >
         <Button href="/"/>
-        <a
+        <Link
           href="/features"
           className="px-6 py-3 border border-gray-300 rounded-lg font-semibold text-[#0F086A] hover:text-[#4F46E5] transition"
         >
           Browse features
-        </a>
+        </Link>
       </motion.div>
     </motion.section>
   )

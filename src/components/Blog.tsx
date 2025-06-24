@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { ArrowLeft, ArrowRight, CalendarDays, Clock } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const articles = [
   {
@@ -107,12 +108,12 @@ export default function Blog() {
           <h2 className="text-3xl md:text-4xl font-bold text-[#0F086A] max-w-2xl">
             Browse our latest articles and resources on email marketing
           </h2>
-          <a
+          <Link
             href="#"
             className="hidden md:inline-block bg-white border border-gray-300 px-5 py-3 rounded-lg text-sm font-semibold text-[#0F086A] hover:text-[#4F46E5] transition"
           >
             Browse all articles
-          </a>
+          </Link>
         </motion.div>
 
         <div className="relative flex-1">

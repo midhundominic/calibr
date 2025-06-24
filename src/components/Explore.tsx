@@ -96,7 +96,7 @@ export default function Footer() {
               viewport={{ once: true, amount: 0.2 }}
               variants={menuContainer}
             >
-              {menuLinks.map((link, idx) => (
+              {menuLinks.map((link) => (
                 <motion.div key={link.href + link.label} variants={menuItem}>
                   <Link href={link.href} className={linkClass}>
                     {link.label}

@@ -9,7 +9,7 @@ interface ButtonProps{
     className?:string;
 }
 
-export default function Button({text='Get Started',href,className=''}:ButtonProps){
+export default function Button({text='Get Started',href}:ButtonProps){
     const router = useRouter();
 
     return(

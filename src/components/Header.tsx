@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Button from "./ui/Button";
 import { ChevronDown } from "lucide-react";
+import Link from "next/link";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,9 +40,9 @@ export default function Header() {
 
           {/* Desktop */}
           <nav className="hidden md:flex gap-10">
-            <a href="/" className="text-lg font-medium text-[#0F086A] hover:text-[#1E78FF]">Home</a>
-            <a href="#about" className="text-lg font-medium text-[#0F086A] hover:text-[#1E78FF]">About</a>
-            <a href="#pricing" className="text-lg font-medium text-[#0F086A] hover:text-[#1E78FF]">Pricing</a>
+            <Link href="/" className="text-lg font-medium text-[#0F086A] hover:text-[#1E78FF]">Home</Link>
+            <Link href="#about" className="text-lg font-medium text-[#0F086A] hover:text-[#1E78FF]">About</Link>
+            <Link href="#pricing" className="text-lg font-medium text-[#0F086A] hover:text-[#1E78FF]">Pricing</Link>
             <div className="relative group">
               <button className="flex items-center gap-1 text-lg font-medium text-[#0F086A] hover:text-[#1E78FF]">
                 Pages
@@ -51,37 +52,37 @@ export default function Header() {
                 <div>
                   <h3 className="text-lg font-semibold text-[#0F086A] mb-4">Menu</h3>
                   <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-[#0F086A]">
-                    <a href="#" className="hover:text-[#1E78FF]">Sales home</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Blog</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Home</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Blog post</a>
-                    <a href="#" className="hover:text-[#1E78FF]">About</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Careers</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Pricing</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Careers single</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Pricing single</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Integrations</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Features</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Integration single</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Contact</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Coming soon</a>
+                  <Link href="#" className="hover:text-[#1E78FF]">Sales home</Link>
+                  <Link href="#" className="hover:text-[#1E78FF]">Blog</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Home</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Blog post</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">About</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Careers</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Pricing</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Careers single</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Pricing single</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Integrations</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Features</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Integration single</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Contact</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Coming soon</Link>
                   </div>
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-[#0F086A] mb-4">Utility Pages</h3>
                   <div className="flex flex-col gap-2 text-[#0F086A]">
-                    <a href="#" className="hover:text-[#1E78FF]">Start Here</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Style Guide</a>
-                    <a href="#" className="hover:text-[#1E78FF]">404 Not Found</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Password protected</a>
-                    <a href="#" className="hover:text-[#1E78FF]">Licenses</a>
-                    <a href="#" className="hover:text-[#1E78FF] underline font-semibold text-[#1E78FF]">More Webflow Templates</a>
+                    <Link href="#" className="hover:text-[#1E78FF]">Start Here</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Style Guide</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">404 Not Found</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Password protected</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Licenses</Link>
+                    <Link href="#" className="hover:text-[#1E78FF] underline font-semibold text-[#1E78FF]">More Webflow Templates</Link>
                   </div>
                 </div>
               </div>
             </div>
           </nav>
-          <a href="#cart" className="text-lg font-medium text-[#0F086A] hover:text-[#1E78FF]">Cart(0)</a>
+          <Link href="#cart" className="text-lg font-medium text-[#0F086A] hover:text-[#1E78FF]">Cart(0)</Link>
         </div>
 
         <div className="hidden md:block">
@@ -121,9 +122,9 @@ export default function Header() {
             className="fixed top-[100px] left-0 w-full bg-white z-40 px-6 py-6 overflow-y-auto h-[calc(100vh-100px)]"
           >
             <nav className="flex flex-col gap-6">
-              <a href="/" className="text-lg font-medium text-[#0C1D37] hover:text-[#1E78FF]">Home</a>
-              <a href="#about" className="text-lg font-medium text-[#0C1D37] hover:text-[#1E78FF]">About</a>
-              <a href="#pricing" className="text-lg font-medium text-[#0C1D37] hover:text-[#1E78FF]">Pricing</a>
+              <Link href="/" className="text-lg font-medium text-[#0C1D37] hover:text-[#1E78FF]">Home</Link>
+              <Link href="#about" className="text-lg font-medium text-[#0C1D37] hover:text-[#1E78FF]">About</Link>
+              <Link href="#pricing" className="text-lg font-medium text-[#0C1D37] hover:text-[#1E78FF]">Pricing</Link>
               <div className="flex flex-col gap-2">
                 <button
                   className="flex items-center justify-between w-full text-lg font-medium text-[#0C1D37] hover:text-[#1E78FF]"
@@ -142,29 +143,29 @@ export default function Header() {
                     >
                       <h3 className="text-md font-semibold text-[#0F086A] mb-2">Menu</h3>
                       <div className="flex flex-col gap-1 text-[#0F086A] text-base">
-                        <a href="#">Sales home</a>
-                        <a href="#">Blog</a>
-                        <a href="#">Home</a>
-                        <a href="#">Blog post</a>
-                        <a href="#">About</a>
-                        <a href="#">Careers</a>
-                        <a href="#">Pricing</a>
-                        <a href="#">Careers single</a>
-                        <a href="#">Pricing single</a>
-                        <a href="#">Integrations</a>
-                        <a href="#">Features</a>
-                        <a href="#">Integration single</a>
-                        <a href="#">Contact</a>
-                        <a href="#">Coming soon</a>
+                        <Link href="#">Sales home</Link>
+                        <Link href="#">Blog</Link>
+                        <Link href="#">Home</Link>
+                        <Link href="#">Blog post</Link>
+                        <Link href="#">About</Link>
+                        <Link href="#">Careers</Link>
+                        <Link href="#">Pricing</Link>
+                        <Link href="#">Careers single</Link>
+                        <Link href="#">Pricing single</Link>
+                        <Link href="#">Integrations</Link>
+                        <Link href="#">Features</Link>
+                        <Link href="#">Integration single</Link>
+                        <Link href="#">Contact</Link>
+                        <Link href="#">Coming soon</Link>
                       </div>
                       <h3 className="text-md font-semibold text-[#0F086A] mt-4 mb-2">Utility Pages</h3>
                       <div className="flex flex-col gap-1 text-[#0F086A] text-base">
-                        <a href="#">Start Here</a>
-                        <a href="#">Style Guide</a>
-                        <a href="#">404 Not Found</a>
-                        <a href="#">Password protected</a>
-                        <a href="#">Licenses</a>
-                        <a href="#" className="hover:text-[#1E78FF] underline font-semibold text-[#1E78FF]">More Webflow Templates</a>
+                        <Link href="#">Start Here</Link>
+                        <Link href="#">Style Guide</Link>
+                        <Link href="#">404 Not Found</Link>
+                        <Link href="#">Password protected</Link>
+                        <Link href="#">Licenses</Link>
+                        <Link href="#" className="hover:text-[#1E78FF] underline font-semibold text-[#1E78FF]">More Webflow Templates</Link>
                       </div>
                     </motion.div>
                   )}

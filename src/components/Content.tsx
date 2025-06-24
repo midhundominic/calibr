@@ -5,6 +5,7 @@ import { CheckCircle } from "lucide-react";
 import Button from "./ui/Button";
 import LearnButton from "./ui/LearnButton";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -100,7 +101,7 @@ export default function Content() {
         viewport={fadeUp.viewport}
         className="flex flex-wrap justify-center item-center  gap-10 pt-5"
       >
-        <a href="https://www.google.com/">
+        <Link href="https://www.google.com/">
           <Image
             src="https://cdn.prod.website-files.com/61800161ed9edf6bdd5c6c4d/655b9aef4d5960a71f88a1da_agency-logo-techpool-x-webflow-template.svg"
             alt="Agency"
@@ -109,8 +110,8 @@ export default function Content() {
             className="h-auto transition-transform duration-400 hover:scale-105 hover:opacity-80"
             priority
           />
-        </a>
-        <a href="https://www.google.com/" className="company">
+        </Link>
+        <Link href="https://www.google.com/" className="company">
           <Image
             src="https://cdn.prod.website-files.com/61800161ed9edf6bdd5c6c4d/655b9aef097dddb009841ae8_application-logo-techpool-x-webflow-template.svg"
             alt="Startup"
@@ -119,8 +120,8 @@ export default function Content() {
             className="h-auto transition-transform duration-400 hover:scale-105 hover:opacity-80"
             priority
           />
-        </a>
-        <a href="https://www.google.com/" className="company">
+        </Link>
+        <Link href="https://www.google.com/" className="company">
           <Image
             src="https://cdn.prod.website-files.com/61800161ed9edf6bdd5c6c4d/655b9aee7c221202d33dc6ba_business-logo-techpool-x-webflow-template.svg"
             alt="second"
@@ -129,8 +130,8 @@ export default function Content() {
             className="h-auto transition-transform duration-400 hover:scale-105 hover:opacity-80"
             priority
           />
-        </a>
-        <a href="https://www.google.com/" className="company">
+        </Link>
+        <Link href="https://www.google.com/" className="company">
           <Image
             src="https://cdn.prod.website-files.com/61800161ed9edf6bdd5c6c4d/655b9aeeeecbab41bde190a1_company-logo-techpool-x-webflow-template.svg"
             alt="Agency"
@@ -139,8 +140,8 @@ export default function Content() {
             className="h-auto transition-transform duration-400 hover:scale-105 hover:opacity-80"
             priority
           />
-        </a>
-        <a href="https://www.google.com/" className="company">
+        </Link>
+        <Link href="https://www.google.com/" className="company">
           <Image
             src="https://cdn.prod.website-files.com/61800161ed9edf6bdd5c6c4d/655b9aef50d2eca1d811425d_venture-logo-techpool-x-webflow-template.svg"
             alt="venture"
@@ -149,8 +150,8 @@ export default function Content() {
             className="h-auto transition-transform duration-400 hover:scale-105 hover:opacity-80"
             priority
           />
-        </a>
-        <a href="https://www.google.com/" className="company">
+        </Link>
+        <Link href="https://www.google.com/" className="company">
           <Image
             src="https://cdn.prod.website-files.com/61800161ed9edf6bdd5c6c4d/655b9aeef080fc67b808eae4_startup-logo-techpool-x-webflow-template.svg"
             alt="Agency"
@@ -159,7 +160,7 @@ export default function Content() {
             className="h-auto transition-transform duration-400 hover:scale-105 hover:opacity-80"
             priority
           />
-        </a>
+        </Link>
       </motion.div>
 
       {/*Next Section*/}
