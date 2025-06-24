@@ -4,21 +4,53 @@ import Image from "next/image";
 import { CheckCircle } from "lucide-react";
 import Button from "./ui/Button";
 import LearnButton from "./ui/LearnButton";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, ease: "easeOut" as const },
+  viewport: { once: true, amount: 0.3 },
+};
 
 export default function Content() {
   return (
     <div>
-      <section className="max-w-7xl mx-auto px-4 pt-20 pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <motion.section
+        initial={fadeUp.initial}
+        whileInView={fadeUp.whileInView}
+        transition={fadeUp.transition}
+        viewport={fadeUp.viewport}
+        className="max-w-7xl mx-auto px-4 pt-20 pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+      >
         <div>
-          <h1 className="text-4xl md:text-6xl font-semibold text-[#0F086A] leading-tight mb-6">
+          <motion.h1
+            initial={fadeUp.initial}
+            whileInView={fadeUp.whileInView}
+            transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" as const }}
+            viewport={fadeUp.viewport}
+            className="text-4xl md:text-6xl font-semibold text-[#0F086A] leading-tight mb-6"
+          >
             All-in-one email marketing platform
-          </h1>
-          <p className="text-base text-[#5E5B8A] leading-relaxed">
+          </motion.h1>
+          <motion.p
+            initial={fadeUp.initial}
+            whileInView={fadeUp.whileInView}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
+            viewport={fadeUp.viewport}
+            className="text-base text-[#5E5B8A] leading-relaxed"
+          >
             Lorem ipsum dolor sit amet consectetur adipiscing elit. Lorem
             tristique cras ullamcorper est pharetra at sit condimentum sed arcu
             etiam aliquam.
-          </p>
-          <div className="pt-5 relative w-full max-w-xl">
+          </motion.p>
+          <motion.div
+            initial={fadeUp.initial}
+            whileInView={fadeUp.whileInView}
+            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" as const }}
+            viewport={fadeUp.viewport}
+            className="pt-5 relative w-full max-w-xl"
+          >
             <input
               type="email"
               placeholder="Enter your email address"
@@ -31,10 +63,16 @@ export default function Content() {
               <CheckCircle className="text-[#5850EC]" size={20} />
               No credit card required
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="pt-5 w-full">
+        <motion.div
+          initial={fadeUp.initial}
+          whileInView={fadeUp.whileInView}
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
+          viewport={fadeUp.viewport}
+          className="pt-5 w-full"
+        >
           <Image
             src="/assets/home1.png"
             alt="Email marketing illustration"
@@ -44,12 +82,24 @@ export default function Content() {
             className="w-full h-auto"
             priority
           />
-        </div>
-      </section>
-      <p className="flex flex-col items-center text-center text-xl font-semibold text-[#0F086A]">
+        </motion.div>
+      </motion.section>
+      <motion.p
+        initial={fadeUp.initial}
+        whileInView={fadeUp.whileInView}
+        transition={fadeUp.transition}
+        viewport={fadeUp.viewport}
+        className="flex flex-col items-center text-center text-xl font-semibold text-[#0F086A] leading-tight mb-6"
+      >
         Trusted by 10,000 companies around the world
-      </p>
-      <div className="flex flex-wrap justify-center item-center  gap-10 pt-5">
+      </motion.p>
+      <motion.div
+        initial={fadeUp.initial}
+        whileInView={fadeUp.whileInView}
+        transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" as const }}
+        viewport={fadeUp.viewport}
+        className="flex flex-wrap justify-center item-center  gap-10 pt-5"
+      >
         <a href="https://www.google.com/">
           <Image
             src="https://cdn.prod.website-files.com/61800161ed9edf6bdd5c6c4d/655b9aef4d5960a71f88a1da_agency-logo-techpool-x-webflow-template.svg"
@@ -110,11 +160,23 @@ export default function Content() {
             priority
           />
         </a>
-      </div>
+      </motion.div>
 
       {/*Next Section*/}
-      <div className="max-w-7xl mx-auto px-4 pt-20 pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="pt-5 w-full">
+      <motion.div
+        initial={fadeUp.initial}
+        whileInView={fadeUp.whileInView}
+        transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
+        viewport={fadeUp.viewport}
+        className="max-w-7xl mx-auto px-4 pt-20 pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+      >
+        <motion.div
+          initial={fadeUp.initial}
+          whileInView={fadeUp.whileInView}
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
+          viewport={fadeUp.viewport}
+          className="pt-5 w-full"
+        >
           <Image
             src="/assets/home2.png"
             alt="Email marketing illustration"
@@ -124,9 +186,14 @@ export default function Content() {
             className="w-full h-auto"
             priority
           />
-        </div>
+        </motion.div>
 
-        <div>
+        <motion.div
+          initial={fadeUp.initial}
+          whileInView={fadeUp.whileInView}
+          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" as const }}
+          viewport={fadeUp.viewport}
+        >
           <h1 className="text-4xl md:text-6xl font-semibold text-[#0F086A] leading-tight mb-6">
             1. Create beautiful email newsletters
           </h1>
@@ -135,7 +202,13 @@ export default function Content() {
             augue turpis etiam felis aliquam u.
           </p>
 
-          <div className="mt-4 flex items-start gap-4 mb-6">
+          <motion.div
+            initial={fadeUp.initial}
+            whileInView={fadeUp.whileInView}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
+            viewport={fadeUp.viewport}
+            className="mt-4 flex items-start gap-4 mb-6"
+          >
             <div className="min-w-[72px] min-h-[72px]">
               <Image
                 src="https://cdn.prod.website-files.com/61800161ed9edf6bdd5c6c4d/61819699b67a2c0948dcdef8_home-perk-01-applay-x-template.svg"
@@ -156,8 +229,14 @@ export default function Content() {
                 fringilla phasellus
               </p>
             </div>
-          </div>
-          <div className="flex items-start gap-4">
+          </motion.div>
+          <motion.div
+            initial={fadeUp.initial}
+            whileInView={fadeUp.whileInView}
+            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" as const }}
+            viewport={fadeUp.viewport}
+            className="flex items-start gap-4"
+          >
             <div className="min-w-[72px] min-h-[72px]">
               <Image
                 src="https://cdn.prod.website-files.com/61800161ed9edf6bdd5c6c4d/6181969935b63c7bfad6685d_home-perk-02-applay-x-template.svg"
@@ -177,16 +256,27 @@ export default function Content() {
                 aliquam nulla facilisi.
               </p>
             </div>
-          </div>
+          </motion.div>
           <div className="mt-5">
             <LearnButton href="/" />
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/*Section3*/}
-      <div className="max-w-7xl mx-auto px-4 pt-20 pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div>
+      <motion.div
+        initial={fadeUp.initial}
+        whileInView={fadeUp.whileInView}
+        transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
+        viewport={fadeUp.viewport}
+        className="max-w-7xl mx-auto px-4 pt-20 pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+      >
+        <motion.div
+          initial={fadeUp.initial}
+          whileInView={fadeUp.whileInView}
+          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" as const }}
+          viewport={fadeUp.viewport}
+        >
           <h1 className="text-4xl md:text-6xl font-semibold text-[#0F086A] leading-tight mb-6">
             2. Send it to your email audience
           </h1>
@@ -194,7 +284,13 @@ export default function Content() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit turpis velit
             augue turpis etiam felis aliquam u.
           </p>
-          <div className="mt-4 flex items-start gap-4 mb-6">
+          <motion.div
+            initial={fadeUp.initial}
+            whileInView={fadeUp.whileInView}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
+            viewport={fadeUp.viewport}
+            className="mt-4 flex items-start gap-4 mb-6"
+          >
             <div className="min-w-[72px] min-h-[72px]">
               <Image
                 src="https://cdn.prod.website-files.com/61800161ed9edf6bdd5c6c4d/618196991957736761ef4215_home-perk-03-applay-x-template.svg"
@@ -215,8 +311,14 @@ export default function Content() {
                 fringilla phasellus
               </p>
             </div>
-          </div>
-          <div className="mt-4 flex items-start gap-4 mb-6">
+          </motion.div>
+          <motion.div
+            initial={fadeUp.initial}
+            whileInView={fadeUp.whileInView}
+            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" as const }}
+            viewport={fadeUp.viewport}
+            className="mt-4 flex items-start gap-4 mb-6"
+          >
             <div className="min-w-[72px] min-h-[72px]">
               <Image
                 src="https://cdn.prod.website-files.com/61800161ed9edf6bdd5c6c4d/61819699fc84e783ee4bffc8_home-perk-04-applay-x-template.svg"
@@ -237,12 +339,18 @@ export default function Content() {
                 aliquam nulla facilisi.
               </p>
             </div>
-          </div>
+          </motion.div>
           <div className="mt-5">
             <LearnButton href="/" />
           </div>
-        </div>
-        <div className="pt-5 w-full">
+        </motion.div>
+        <motion.div
+          initial={fadeUp.initial}
+          whileInView={fadeUp.whileInView}
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
+          viewport={fadeUp.viewport}
+          className="pt-5 w-full"
+        >
           <Image
             src="/assets/home3.png"
             alt="Email Audience"
@@ -252,12 +360,24 @@ export default function Content() {
             className="w-full h-auto"
             priority
           />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/*Section 4 */}
-      <div className="max-w-7xl mx-auto px-4 pt-20 pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="pt-5 w-full">
+      <motion.div
+        initial={fadeUp.initial}
+        whileInView={fadeUp.whileInView}
+        transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
+        viewport={fadeUp.viewport}
+        className="max-w-7xl mx-auto px-4 pt-20 pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+      >
+        <motion.div
+          initial={fadeUp.initial}
+          whileInView={fadeUp.whileInView}
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
+          viewport={fadeUp.viewport}
+          className="pt-5 w-full"
+        >
           <Image
             src="/assets/home4.png"
             alt="measure email"
@@ -267,9 +387,14 @@ export default function Content() {
             className="w-full h-auto"
             priority
           />
-        </div>
+        </motion.div>
 
-        <div>
+        <motion.div
+          initial={fadeUp.initial}
+          whileInView={fadeUp.whileInView}
+          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" as const }}
+          viewport={fadeUp.viewport}
+        >
           <h1 className="text-4xl md:text-6xl font-semibold text-[#0F086A] leading-tight mb-6">
             3. Measure email campaign results
           </h1>
@@ -278,7 +403,13 @@ export default function Content() {
             augue turpis etiam felis aliquam u.
           </p>
 
-          <div className="mt-4 flex items-start gap-4 mb-6">
+          <motion.div
+            initial={fadeUp.initial}
+            whileInView={fadeUp.whileInView}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
+            viewport={fadeUp.viewport}
+            className="mt-4 flex items-start gap-4 mb-6"
+          >
             <div className="min-w-[72px] min-h-[72px]">
               <Image
                 src="https://cdn.prod.website-files.com/61800161ed9edf6bdd5c6c4d/618196993ebc8958b57ca85d_home-perk-05-applay-x-template.svg"
@@ -299,8 +430,14 @@ export default function Content() {
                 fringilla phasellus
               </p>
             </div>
-          </div>
-          <div className="flex items-start gap-4">
+          </motion.div>
+          <motion.div
+            initial={fadeUp.initial}
+            whileInView={fadeUp.whileInView}
+            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" as const }}
+            viewport={fadeUp.viewport}
+            className="flex items-start gap-4"
+          >
             <div className="min-w-[72px] min-h-[72px]">
               <Image
                 src="https://cdn.prod.website-files.com/61800161ed9edf6bdd5c6c4d/61819699466df851b9ba41d3_home-perk-06-applay-x-template.svg"
@@ -320,22 +457,39 @@ export default function Content() {
                 aliquam nulla facilisi.
               </p>
             </div>
-          </div>
+          </motion.div>
           <div className="mt-5">
             <LearnButton href="/" />
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/*Next Section*/}
-      <div className="bg-[#524FFF]">
+      <motion.div
+        initial={fadeUp.initial}
+        whileInView={fadeUp.whileInView}
+        transition={fadeUp.transition}
+        viewport={fadeUp.viewport}
+        className="bg-[#524FFF]"
+      >
         <div className="max-w-7xl mx-auto px-4 pt-20 pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
+          <motion.div
+            initial={fadeUp.initial}
+            whileInView={fadeUp.whileInView}
+            transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" as const }}
+            viewport={fadeUp.viewport}
+          >
             <h1 className="text-4xl md:text-5xl font-semibold text-[#FFFFFF] pt-10 pb-10">
               Take your email marketing game to the next level
             </h1>
-          </div>
-          <div className="pt-5 relative w-full max-w-xl">
+          </motion.div>
+          <motion.div
+            initial={fadeUp.initial}
+            whileInView={fadeUp.whileInView}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
+            viewport={fadeUp.viewport}
+            className="pt-5 relative w-full max-w-xl"
+          >
             <input
               type="email"
               placeholder="Enter your email address"
@@ -348,9 +502,9 @@ export default function Content() {
               <CheckCircle className="text-[#FFFFFF]" size={20} />
               No credit card required
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

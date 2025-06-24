@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { ArrowLeft, ArrowRight, CalendarDays, Clock } from "lucide-react";
+import { motion } from "framer-motion";
 
 const articles = [
   {
@@ -79,6 +80,13 @@ const articles = [
   },
 ];
 
+const fadeUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, ease: "easeOut" as const },
+  viewport: { once: true, amount: 0.2 },
+};
+
 export default function Blog() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -93,9 +101,9 @@ export default function Blog() {
   };
 
   return (
-    <section className="bg-[#f8f7ff] h-screen px-4 pt-10 pb-10 overflow-hidden">
-      <div className="max-w-full mx-auto h-full flex flex-col">
-        <div className="flex items-center justify-between mb-8">
+    <motion.section {...fadeUp} className="bg-[#f8f7ff] h-screen px-4 pt-10 pb-10 overflow-hidden">
+      <motion.div {...fadeUp} className="max-w-full mx-auto h-full flex flex-col">
+        <motion.div {...fadeUp} className="flex items-center justify-between mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0F086A] max-w-2xl">
             Browse our latest articles and resources on email marketing
           </h2>
@@ -105,30 +113,51 @@ export default function Blog() {
           >
             Browse all articles
           </a>
-        </div>
+        </motion.div>
 
         <div className="relative flex-1">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.12 }}
+            whileTap={{ scale: 0.92 }}
             onClick={() => scroll("left")}
             className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-[#4F46E5] rounded-full text-white flex items-center justify-center shadow-md"
           >
             <ArrowLeft size={18} />
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.12 }}
+            whileTap={{ scale: 0.92 }}
             onClick={() => scroll("right")}
             className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-[#4F46E5] rounded-full text-white flex items-center justify-center shadow-md"
           >
             <ArrowRight size={18} />
-          </button>
+          </motion.button>
 
-          <div
+          <motion.div
             ref={scrollRef}
             className="flex gap-6 overflow-x-scroll scroll-smooth scrollbar-hide h-full"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.13,
+                },
+              },
+            }}
           >
             {articles.map((article, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="w-[91%] md:w-[46%] lg:w-[46%] h-full bg-white rounded-2xl shadow-md flex-shrink-0 flex flex-col"
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
+                }}
+                whileHover={{ scale: 1.03, boxShadow: '0 8px 32px rgba(80,80,180,0.10)' }}
+                whileTap={{ scale: 0.98 }}
+                className="w-[91%] md:w-[46%] lg:w-[46%] h-full bg-white rounded-2xl shadow-md flex-shrink-0 flex flex-col cursor-pointer"
               >
                 <div className="bg-[#E7E6FA] p-8 rounded-t-5xl flex justify-center">
                   <Image
@@ -161,11 +190,11 @@ export default function Blog() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

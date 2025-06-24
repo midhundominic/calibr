@@ -10,6 +10,49 @@ import {
   Youtube,
   Mail
 } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+const fadeUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, ease: "easeOut" as const },
+  viewport: { once: true, amount: 0.2 },
+};
+
+const menuLinks = [
+  { href: "/", label: "Sales home" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/pricing-single", label: "Pricing single" },
+  { href: "/features", label: "Features" },
+  { href: "/contact", label: "Contact" },
+  { href: "/blog", label: "Blog" },
+  { href: "/blog-post", label: "Blog post" },
+  { href: "/careers", label: "Careers" },
+  { href: "/careers-single", label: "Careers single" },
+  { href: "/integrations", label: "Integrations" },
+  { href: "/integrations-single", label: "Integrations Single" },
+  { href: "/coming-soon", label: "Coming Soon" },
+];
+
+const menuContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const menuItem = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+};
 
 export default function Footer() {
   const iconClass =
@@ -19,7 +62,13 @@ export default function Footer() {
     'text-sm text-[#4B4E68] hover:text-[#534FFF] transition-all duration-300'
 
   return (
-    <footer className="bg-white px-4 md:px-8 lg:px-16 py-16 text-[#0F086A]">
+    <motion.footer
+      initial={fadeUp.initial}
+      whileInView={fadeUp.whileInView}
+      transition={fadeUp.transition}
+      viewport={fadeUp.viewport}
+      className="bg-white px-4 md:px-8 lg:px-16 py-16 text-[#0F086A]"
+    >
       <div className="flex justify-center">
         <div className="w-full max-w-7xl text-center md:text-left grid grid-cols-1 md:grid-cols-4 gap-10">
 
@@ -40,22 +89,21 @@ export default function Footer() {
 
           <div>
             <h4 className="font-semibold text-md mb-3">Menu</h4>
-            <div className="grid grid-cols-2 gap-y-3 gap-x-4 justify-center md:justify-start">
-              <Link href="/" className={linkClass}>Sales home</Link>
-              <Link href="/" className={linkClass}>Home</Link>
-              <Link href="/about" className={linkClass}>About</Link>
-              <Link href="/pricing" className={linkClass}>Pricing</Link>
-              <Link href="/pricing-single" className={linkClass}>Pricing single</Link>
-              <Link href="/features" className={linkClass}>Features</Link>
-              <Link href="/contact" className={linkClass}>Contact</Link>
-              <Link href="/blog" className={linkClass}>Blog</Link>
-              <Link href="/blog-post" className={linkClass}>Blog post</Link>
-              <Link href="/careers" className={linkClass}>Careers</Link>
-              <Link href="/careers-single" className={linkClass}>Careers single</Link>
-              <Link href="/integrations" className={linkClass}>Integrations</Link>
-              <Link href="/integrations-single" className={linkClass}>Integrations Single</Link>
-              <Link href="/coming-soon" className={linkClass}>Coming Soon</Link>
-            </div>
+            <motion.div
+              className="grid grid-cols-2 gap-y-3 gap-x-4 justify-center md:justify-start"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={menuContainer}
+            >
+              {menuLinks.map((link, idx) => (
+                <motion.div key={link.href + link.label} variants={menuItem}>
+                  <Link href={link.href} className={linkClass}>
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
 
 
@@ -78,31 +126,31 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               <li>
                 <Link href="https://facebook.com" className="flex items-center gap-2 group">
-                  <span className={iconClass}><Facebook size={18} /></span>
+                  <motion.span whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }} className={iconClass}><Facebook size={18} /></motion.span>
                   <span className={linkClass}>Facebook</span>
                 </Link>
               </li>
               <li>
                 <Link href="https://twitter.com" className="flex items-center gap-2 group">
-                  <span className={iconClass}><Twitter size={18} /></span>
+                  <motion.span whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }} className={iconClass}><Twitter size={18} /></motion.span>
                   <span className={linkClass}>Twitter</span>
                 </Link>
               </li>
               <li>
                 <Link href="https://instagram.com" className="flex items-center gap-2 group">
-                  <span className={iconClass}><Instagram size={18} /></span>
+                  <motion.span whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }} className={iconClass}><Instagram size={18} /></motion.span>
                   <span className={linkClass}>Instagram</span>
                 </Link>
               </li>
               <li>
                 <Link href="https://linkedin.com" className="flex items-center gap-2 group">
-                  <span className={iconClass}><Linkedin size={18} /></span>
+                  <motion.span whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }} className={iconClass}><Linkedin size={18} /></motion.span>
                   <span className={linkClass}>LinkedIn</span>
                 </Link>
               </li>
               <li>
                 <Link href="https://youtube.com" className="flex items-center gap-2 group">
-                  <span className={iconClass}><Youtube size={18} /></span>
+                  <motion.span whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }} className={iconClass}><Youtube size={18} /></motion.span>
                   <span className={linkClass}>YouTube</span>
                 </Link>
               </li>
@@ -133,14 +181,16 @@ export default function Footer() {
             placeholder="Enter your email"
             className="px-4 py-3 w-full md:w-64 outline-none text-sm text-gray-600"
           />
-          <button
+          <motion.button
             type="submit"
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.97 }}
             className="bg-[#4F46E5] px-5 py-3 text-white font-semibold text-sm hover:bg-[#3b36d3]"
           >
             Subscribe
-          </button>
+          </motion.button>
         </form>
       </div>
-    </footer>
+    </motion.footer>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
 import Button from './ui/Button'
+import { motion } from 'framer-motion'
 
 const features = [
     {
@@ -47,11 +48,29 @@ const features = [
     },
   ]
   
+const fadeUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, ease: 'easeOut' as const },
+  viewport: { once: true, amount: 0.2 },
+};
 
 export default function FeaturesSection() {
   return (
-    <section className="py-20 px-4 text-center bg-white">
-      <div className="max-w-4xl mx-auto mb-12">
+    <motion.section
+      initial={fadeUp.initial}
+      whileInView={fadeUp.whileInView}
+      transition={fadeUp.transition}
+      viewport={fadeUp.viewport}
+      className="py-20 px-4 text-center bg-white"
+    >
+      <motion.div
+        initial={fadeUp.initial}
+        whileInView={fadeUp.whileInView}
+        transition={fadeUp.transition}
+        viewport={fadeUp.viewport}
+        className="max-w-4xl mx-auto mb-12"
+      >
         <h2 className="text-3xl md:text-4xl font-bold text-[#0F086A]">
           Simple and useful features
         </h2>
@@ -59,13 +78,36 @@ export default function FeaturesSection() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit fermentum sit
           pulvinar sed adipiscing ullamcorper quam at purus.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <motion.div
+        className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.13,
+            },
+          },
+        }}
+      >
         {features.map((feature, index) => (
-          <div
+          <motion.div
             key={index}
-            className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition"
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.6, ease: 'easeOut' as const },
+              },
+            }}
+            whileHover={{ scale: 1.04, boxShadow: '0 8px 32px rgba(80,80,180,0.10)' }}
+            whileTap={{ scale: 0.98 }}
+            className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition cursor-pointer"
           >
             <div className="w-18 h-18 mb-4 mx-auto rounded-xl flex items-center justify-center">
               <Image
@@ -80,12 +122,17 @@ export default function FeaturesSection() {
               {feature.title}
             </h3>
             <p className="text-sm text-gray-600">{feature.description}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      <div className="mt-12 flex justify-center gap-4 flex-wrap">
-       
+      <motion.div
+        initial={fadeUp.initial}
+        whileInView={fadeUp.whileInView}
+        transition={fadeUp.transition}
+        viewport={fadeUp.viewport}
+        className="mt-12 flex justify-center gap-4 flex-wrap"
+      >
         <Button href="/"/>
         <a
           href="/features"
@@ -93,7 +140,7 @@ export default function FeaturesSection() {
         >
           Browse features
         </a>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   )
 }
