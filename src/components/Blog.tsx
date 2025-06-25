@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight, CalendarDays, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -90,16 +90,35 @@ const fadeUp = {
 
 export default function Blog() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   const scroll = (dir: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = scrollRef.current.offsetWidth * 0.66; // scroll by ~2 cards
+      const scrollAmount = scrollRef.current.offsetWidth * 0.8; // increased scroll amount
       scrollRef.current.scrollBy({
         left: dir === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
       });
     }
   };
+
+  const checkScrollButtons = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (scrollContainer) {
+      scrollContainer.addEventListener('scroll', checkScrollButtons);
+      checkScrollButtons(); // Check initial state
+      return () => scrollContainer.removeEventListener('scroll', checkScrollButtons);
+    }
+  }, []);
 
   return (
     <motion.section {...fadeUp} className="bg-[#f8f7ff] h-screen px-4 pt-10 pb-10 overflow-hidden">
@@ -117,22 +136,26 @@ export default function Blog() {
         </motion.div>
 
         <div className="relative flex-1">
-          <motion.button
-            whileHover={{ scale: 1.12 }}
-            whileTap={{ scale: 0.92 }}
-            onClick={() => scroll("left")}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-[#4F46E5] rounded-full text-white flex items-center justify-center shadow-md"
-          >
-            <ArrowLeft size={18} />
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.12 }}
-            whileTap={{ scale: 0.92 }}
-            onClick={() => scroll("right")}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-[#4F46E5] rounded-full text-white flex items-center justify-center shadow-md"
-          >
-            <ArrowRight size={18} />
-          </motion.button>
+          {canScrollLeft && (
+            <motion.button
+              whileHover={{ scale: 1.12 }}
+              whileTap={{ scale: 0.92 }}
+              onClick={() => scroll("left")}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-14 h-14 bg-[#4F46E5] rounded-full text-white flex items-center justify-center shadow-md"
+            >
+              <ArrowLeft size={24} />
+            </motion.button>
+          )}
+          {canScrollRight && (
+            <motion.button
+              whileHover={{ scale: 1.12 }}
+              whileTap={{ scale: 0.92 }}
+              onClick={() => scroll("right")}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-14 h-14 bg-[#4F46E5] rounded-full text-white flex items-center justify-center shadow-md"
+            >
+              <ArrowRight size={24} />
+            </motion.button>
+          )}
 
           <motion.div
             ref={scrollRef}

@@ -12,7 +12,7 @@ const testimonials = [
     avatar: "/assets/avatar/avatar1.png",
     logo: "/assets/avatar/avatar1_company.svg",
     quote: '"The best email marketing tool"',
-    text: "Ut pharetra sit amet aliquam id diam maecenas ultricies hendrerit dolor magna eget est lorem ipsum dolor sit amet mauris in aliquam sem fringilla ut morbi tincidunt dis parturient montes nascetur ridiculus.",
+    text: "Ut pharetra sit amet aliquam id diam maecenas ultricies hendrerit dolor magna eget est lorem ipsum dolor sit.",
   },
   {
     name: "Michael Scott",
@@ -84,7 +84,7 @@ export default function Testimonial() {
         ))}
       </div>
 
-      <div className="relative">
+      <div className="relative mb-20">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIndex}
@@ -165,7 +165,7 @@ export default function Testimonial() {
         ))}
       </div>
 
-      <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
+      <div className="flex flex-col md:flex-row gap-4 justify-center mt-10 px-4">
         <Button href="/" text="Get Started" />
         <button className="bg-white text-[#0F086A] font-semibold px-6 py-3 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition">
           View pricing

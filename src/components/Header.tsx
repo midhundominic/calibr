@@ -48,12 +48,12 @@ export default function Header() {
                 Pages
                 <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
               </button>
-              <div className="absolute top-full -left-40 mt-4 bg-white shadow-lg rounded-xl py-8 px-10 z-50 w-[650px] flex justify-between opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300">
+              <div className="absolute top-full -left-40 mt-0 bg-white shadow-lg rounded-xl py-8 px-10 z-50 w-[650px] flex justify-between opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300">
                 <div>
                   <h3 className="text-lg font-semibold text-[#0F086A] mb-4">Menu</h3>
                   <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-[#0F086A]">
-                  <Link href="#" className="hover:text-[#1E78FF]">Sales home</Link>
-                  <Link href="#" className="hover:text-[#1E78FF]">Blog</Link>
+                    <Link href="#" className="hover:text-[#1E78FF]">Sales home</Link>
+                    <Link href="#" className="hover:text-[#536683]">Blog</Link>
                     <Link href="#" className="hover:text-[#1E78FF]">Home</Link>
                     <Link href="#" className="hover:text-[#1E78FF]">Blog post</Link>
                     <Link href="#" className="hover:text-[#1E78FF]">About</Link>
